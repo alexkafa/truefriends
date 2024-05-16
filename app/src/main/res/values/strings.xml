@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">truefriends</string>
+    <string name="team_1" />
+    <string name="team_2" />
+    <string name="match_history" />
+    <string name="new_game">New Game</string>
+    <string name="Match_History">Match History</string>
+    <string name="eam_1">Τeam 1</string>
+    <string name="eam_2">Τeam 2</string>
+    <string name="teamm_1">Τeam 1</string>
+    <string name="teamm_2">Team 2</string>
+    <string name="enter_team_name">Enter team name</string>
+</resources>
