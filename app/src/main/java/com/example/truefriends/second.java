@@ -11,12 +11,12 @@ public class second extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_rulesandformat);
 
         findViewById(R.id.buttonNext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(second.this, third.class);
+                Intent intent = new Intent(second.this, rulesandformat.class);
                 startActivity(intent);
             }
         });
