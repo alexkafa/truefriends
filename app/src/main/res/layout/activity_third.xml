@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0e2763"
+    tools:context=".third">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="64dp"
+        android:contentDescription="@string/dates"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_00___create_a_playful_and_colorful_logo_for_the_category__dates__for_a_friendship_themed_quiz_game__the_logo_should_feature_a_calendar_or_historical_dates_" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/hoppesndreams"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_07___create_a_playful_and_colorful_logo_for_the_category__hopes_and_dreams__for_a_friendship_themed_quiz_game__the_logo_should_feature_clouds__stars__or_a_" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="64dp"
+        android:contentDescription="@string/gossip"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_10___create_a_playful_and_colorful_logo_for_the_category__gossip__for_a_friendship_themed_quiz_game__the_logo_should_feature_speech_bubbles_or_gossip_icons" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="248dp"
+        android:layout_marginEnd="64dp"
+        android:contentDescription="@string/binary"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_13___create_a_playful_and_colorful_logo_for_the_category__yes_or_no__for_a_friendship_themed_quiz_game__the_logo_should_feature_a_checkmark_and_a_cross__be" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
+        android:contentDescription="@string/top5"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_15___create_a_playful_and_colorful_logo_for_the_category__top_5__for_a_friendship_themed_quiz_game__the_logo_should_feature_a_trophy_or_top_list__be_vibran" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="152dp"
+        android:contentDescription="@string/names"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_47_53___create_a_playful_and_colorful_logo_for_the_category__name__for_a_friendship_themed_quiz_game__the_logo_should_feature_a_name_tag_or_nameplate__be_vibr"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="268dp"
+        android:contentDescription="@string/ancienthistory"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_22___create_a_playful_and_colorful_logo_for_the_category__ancient_history__for_a_friendship_themed_quiz_game__the_logo_should_feature_ancient_artifacts_or_" />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="384dp"
+        android:contentDescription="@string/hobbies"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_21_18_57___create_a_playful_and_colorful_logo_for_the_category__hobbies_and_interests__for_a_friendship_themed_quiz_game__the_logo_should_feature_icons_of_hobbie" />
+
+    <ImageButton
+        android:id="@+id/imageButton12"
+        android:layout_width="113dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="520dp"
+        android:contentDescription="@string/truefriends"
+        android:scaleType="fitXY"
+        android:background="@drawable/rounded_button_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dall_e_2024_05_19_20_39_18___create_a_playful_and_colorful_logo_for_the_category__true_friend__for_a_friendship_themed_quiz_game__the_logo_should_feature_two_friends_hugging_or_a_"
+        tools:layout_editor_absoluteX="149dp"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
