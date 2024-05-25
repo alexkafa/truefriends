@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openTeamSetUpPage(View view) {
-        Intent intent = new Intent(this, second.class);
+        Intent intent = new Intent(this, Second.class);
         startActivity(intent);
     }
 }

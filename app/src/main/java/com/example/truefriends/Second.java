@@ -7,16 +7,16 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class second extends AppCompatActivity {
+public class Second extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rulesandformat);
+        setContentView(R.layout.activity_second);
 
         findViewById(R.id.buttonNext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(second.this, rulesandformat.class);
+                Intent intent = new Intent(Second.this, Third.class);
                 startActivity(intent);
             }
         });
@@ -28,5 +28,4 @@ public class second extends AppCompatActivity {
             }
         });
     }
-
 }

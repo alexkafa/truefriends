@@ -4,7 +4,7 @@ package com.example.truefriends;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class third extends AppCompatActivity {
+public class Third extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

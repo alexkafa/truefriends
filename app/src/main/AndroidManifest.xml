@@ -13,12 +13,9 @@
         android:theme="@style/Theme.Truefriends"
         tools:targetApi="31">
         <activity
-            android:name=".rulesandformat"
+            android:name=".Third"
             android:exported="false" />
-        <activity
-            android:name=".third"
-            android:exported="false" />
-        <activity android:name=".second" />
+        <activity android:name=".Second" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

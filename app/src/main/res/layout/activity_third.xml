@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0e2763"
-    tools:context=".third">
+    tools:context=".Third">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -14,7 +14,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="70dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/dates"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="70dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/hoppesndreams"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/imageButton3"
@@ -42,7 +42,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="132dp"
         android:layout_marginEnd="70dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/gossip"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +55,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="248dp"
         android:layout_marginEnd="70dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/binary"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="36dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/top5"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
@@ -83,12 +83,12 @@
         android:layout_height="100dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="152dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/names"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dall_e_2024_05_19_20_47_53___create_a_playful_and_colorful_logo_for_the_category__name__for_a_friendship_themed_quiz_game__the_logo_should_feature_a_name_tag_or_nameplate__be_vibr"
+        app:srcCompat="@drawable/names"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -97,7 +97,7 @@
         android:layout_height="100dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="268dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/ancienthistory"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,19 +110,19 @@
         android:layout_height="100dp"
         android:layout_marginStart="70dp"
         android:layout_marginTop="384dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/hobbies"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dall_e_2024_05_19_21_18_57___create_a_playful_and_colorful_logo_for_the_category__hobbies_and_interests__for_a_friendship_themed_quiz_game__the_logo_should_feature_icons_of_hobbie" />
+        app:srcCompat="@drawable/hobbies" />
 
     <ImageButton
         android:id="@+id/imageButton12"
         android:layout_width="113dp"
         android:layout_height="100dp"
         android:layout_marginTop="504dp"
-        android:background="@drawable/rounded_button_background"
+
         android:contentDescription="@string/truefriends"
         android:scaleType="centerInside"
         app:layout_constraintTop_toTopOf="parent"
