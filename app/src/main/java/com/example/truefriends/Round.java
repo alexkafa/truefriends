@@ -4,13 +4,12 @@ public class Round {
 
     private final int number;
     private final Team team;
-    private final Question question;
+    private Question question;
     private boolean answer;
 
-    public Round(int number, Team team, Question question){
+    public Round(int number, Team team){
         this.number = number;
         this.team = team;
-        this.question = question;
     }
 
 
@@ -22,5 +21,11 @@ public class Round {
 
 
     // Setters
-    public void setAnswer(boolean answer) {this.answer = answer;}
+    public void setQuestion(Question question) {this.question = question;}
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+        if (answer){
+            team.addPoints(question.getValue());
+        }
+    }
 }
