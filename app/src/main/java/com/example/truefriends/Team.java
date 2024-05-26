@@ -6,7 +6,7 @@ public class Team {
     private int points;
 
 
-    public Team(String name, boolean isTeamA){
+    public Team(String name){
         this.name = name;
         points = 0;
     }
