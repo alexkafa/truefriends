@@ -121,14 +121,15 @@
         android:id="@+id/imageButton9"
         android:layout_width="113dp"
         android:layout_height="100dp"
+        android:layout_marginStart="149dp"
         android:layout_marginTop="540dp"
         android:contentDescription="@string/truefriends"
-        android:scaleType="centerInside"
         android:onClick="showQuestion"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dall_e_2024_05_19_20_39_18___create_a_playful_and_colorful_logo_for_the_category__true_friend__for_a_friendship_themed_quiz_game__the_logo_should_feature_two_friends_hugging_or_a_"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="149dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button3"
@@ -140,5 +141,21 @@
         android:onClick="cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="237dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="87dp"
+        android:fontFamily="monospace"
+        android:text="Team Name"
+        android:textAlignment="center"
+        android:textColor="#FD4838"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

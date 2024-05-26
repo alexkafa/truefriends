@@ -1,18 +1,24 @@
 package com.example.truefriends;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 
 
 public class Third extends AppCompatActivity {
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
+
+        TextView teamNameTextView = findViewById(R.id.textView);
+        teamNameTextView.setText("Team: "+MainActivity.gameAPI.getCurrentTeamName());
     }
 
     public void showQuestion(View view) {

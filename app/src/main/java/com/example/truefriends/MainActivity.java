@@ -9,13 +9,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    EditText objEditTextName;
-    TextView objTextViewName;
+
+    public static GameAPI gameAPI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        gameAPI = new GameAPI();
     }
 
     public void openTeamSetUpPage(View view) {

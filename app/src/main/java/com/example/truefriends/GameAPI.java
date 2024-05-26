@@ -4,10 +4,19 @@ import java.util.List;
 
 public class GameAPI {
 
+    private List<Question> questionList;
     private final int totalRounds = 10;
     private Game game;
 
-    public GameAPI(List<Question> questionList, String team1Name, String team2Name){
+    public GameAPI(){
+
+    }
+
+    public void setQuestionList(List<Question> questionList){
+        this.questionList = questionList;
+    }
+
+    public void startGame(String team1Name, String team2Name){
         this.game = new Game(new Team(team1Name), new Team(team2Name), questionList);
     }
 
@@ -27,6 +36,14 @@ public class GameAPI {
     public void answerButton(boolean answer){
         game.giveAnswer(answer);
         checkToContinue();
+    }
+
+    public Game getGame(){
+        return game;
+    }
+
+    public String getCurrentTeamName() {
+        return game.getCurrentRound().getTeam().getName();
     }
 
 }

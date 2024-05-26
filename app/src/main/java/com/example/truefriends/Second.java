@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,14 @@ public class Second extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Second.this, Third.class);
                 startActivity(intent);
+
+                EditText editTextTeam1 = findViewById(R.id.editTextTeam1);
+                String team1Name = editTextTeam1.getText().toString();
+
+                EditText editTextTeam2 = findViewById(R.id.editTextTeam2);
+                String team2Name = editTextTeam2.getText().toString();
+
+                MainActivity.gameAPI.startGame(team1Name,team2Name);
             }
         });
         Button buttonBack = findViewById(R.id.buttonBack);
