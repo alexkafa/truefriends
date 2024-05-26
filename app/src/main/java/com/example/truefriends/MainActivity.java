@@ -22,4 +22,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Second.class);
         startActivity(intent);
     }
+
+    public void openRulesPage(View view) {
+        Intent intent = new Intent(this, RulesActivity.class);
+        startActivity(intent);
+    }
+
 }
