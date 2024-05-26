@@ -44,6 +44,19 @@ public class Game {
         currentRound.setAnswer(correct);
     }
 
+    public String getWinningTeam(){
+        if (team1.getPoints()>team2.getPoints()){
+            return "Team: "+team1.getName()+" won!";
+        }
+        else if (team2.getPoints()>team1.getPoints()){
+            return "Team: "+team2.getName()+" won!";
+        }
+        else{
+            return "It's a draw!";
+        }
+    }
     public Round getCurrentRound() {return currentRound;}
+    public Team getTeam1() {return team1;}
+    public Team getTeam2() {return team2;}
 
 }
