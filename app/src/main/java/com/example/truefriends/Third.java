@@ -56,7 +56,7 @@ public class Third extends AppCompatActivity {
 
         //System.out.println(category);
 
-        intent.putExtra("QUESTION", category);
+        intent.putExtra("QUESTION", MainActivity.gameAPI.chooseCategoryButton(category));
         startActivity(intent);
     }
 
