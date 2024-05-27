@@ -21,4 +21,9 @@
     <string name="truefriends">TODO</string>
     <string name="rules">Rules</string>
     <string name="logo_image">Logo image</string>
+    <string name="team_name">Team name</string>
+    <string name="right">Right</string>
+    <string name="question">Question</string>
+    <string name="cancel">Cancel</string>
+    <string name="wrong">Wrong</string>
 </resources>

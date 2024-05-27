@@ -152,7 +152,7 @@
         android:fontFamily="monospace"
         android:text="Team Name"
         android:textAlignment="center"
-        android:textColor="#FD4838"
+        android:textColor="#F8F4F4"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

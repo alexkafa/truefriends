@@ -2,19 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#011250"
     android:backgroundTint="#011250"
     tools:context=".QuestionActivity">
 
-    <TextView
-        android:id="@+id/questionTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Question will appear here"
-        android:textSize="18sp"
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_width="110dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="77dp"
+        android:backgroundTint="#0DEA16"
+        android:text="@string/right"
+        android:onClick="teamAnsweredRight"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestion" />
+
+    <TextView
+        android:id="@+id/teamNameTextView"
+        android:layout_width="240dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="87dp"
+        android:text="@string/team_name"
+        android:textAlignment="center"
+        android:textColor="#F6F1F1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewQuestion"
+        android:layout_width="333dp"
+        android:layout_height="251dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="62dp"
+        android:background="#00BCD4"
+        android:backgroundTint="#00BCD4"
+        android:text="@string/question"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teamNameTextView" />
+
+    <Button
+        android:id="@+id/buttonWrong"
+        android:layout_width="110dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="85dp"
+        android:backgroundTint="#FB0E0E"
+        android:text="@string/wrong"
+        android:onClick="teamAnsweredWrong"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuestion" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="664dp"
+        android:text="@string/cancel"
+        android:onClick="cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
