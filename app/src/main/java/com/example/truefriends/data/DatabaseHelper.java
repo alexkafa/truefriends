@@ -15,6 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE questions (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "category TEXT NOT NULL, " +
+                    "difficulty TEXT NOT NULL, " +
                     "question TEXT NOT NULL, " +
                     "value INTEGER NOT NULL);";
 
@@ -35,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE questions;");
+        db.close();
     }
 }
