@@ -26,7 +26,6 @@ public class QuestionDb implements IDb<Question>{
         values.put("category", question.getCategory().name());
         values.put("difficulty", question.getDifficulty().name());
         values.put("question", question.getQuestion());
-        values.put("value", question.getValue());
         db.insert("questions", null, values);
         db.close();
     }
@@ -39,7 +38,7 @@ public class QuestionDb implements IDb<Question>{
             cursor.moveToFirst();
             Question question = new Question(
                     cursor.getInt(0
-                    ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3), cursor.getInt(4));
+                    ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3));
             cursor.close();
             return question;
         } else {
@@ -56,7 +55,7 @@ public class QuestionDb implements IDb<Question>{
             do {
                 Question question = new Question(
                         cursor.getInt(0
-                        ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3), cursor.getInt(4));
+                        ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3));
                 questions.add(question);
             } while (cursor.moveToNext());
         }
@@ -73,7 +72,7 @@ public class QuestionDb implements IDb<Question>{
             do {
                 Question question = new Question(
                         cursor.getInt(0
-                        ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3), cursor.getInt(4));
+                        ), Category.valueOf(cursor.getString(1)), Difficulty.valueOf(cursor.getString(2)), cursor.getString(3));
                 questions.add(question);
             } while (cursor.moveToNext());
         }
@@ -86,7 +85,6 @@ public class QuestionDb implements IDb<Question>{
         values.put("question", question.getQuestion());
         values.put("category", question.getCategory().name());
         values.put("difficulty", question.getDifficulty().name());
-        values.put("value", question.getValue());
         db.update("questions", values, "id=?", new String[]{String.valueOf(question.getId())});
         db.close();
     }

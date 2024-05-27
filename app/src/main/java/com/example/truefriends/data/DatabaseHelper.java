@@ -16,11 +16,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "category TEXT NOT NULL, " +
                     "difficulty TEXT NOT NULL, " +
-                    "question TEXT NOT NULL, " +
-                    "value INTEGER NOT NULL);";
+                    "question TEXT NOT NULL);";
 
     private DatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE, null, 1);
+        super(context, DATABASE, null, 2);
     }
 
     public static DatabaseHelper getInstance(Context context){
