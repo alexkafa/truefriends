@@ -22,14 +22,14 @@ public class Game {
 
     public void newRound(){
         if (currentRound.getTeam().equals(team1)){
-            currentRound = new Round(currentRound.getNumber(), team2);
+            currentRound = new Round(currentRound.getNumber()+1, team2);
         }
         else{
-            currentRound = new Round(currentRound.getNumber(), team1);
+            currentRound = new Round(currentRound.getNumber()+1, team1);
         }
     }
 
-    public Question newQuestion(String category){
+    public Question newQuestion(Category category){
         Question newQuestion =  questionList.stream()
                 .filter(q -> q.getCategory().equals(category))
                 .skip(random.nextInt((int) questionList.stream().filter(q -> q.getCategory().equals(category)).count()))
@@ -46,10 +46,10 @@ public class Game {
 
     public String getWinningTeam(){
         if (team1.getPoints()>team2.getPoints()){
-            return "Team: "+team1.getName()+" won!";
+            return "Team "+team1.getName()+" won!";
         }
         else if (team2.getPoints()>team1.getPoints()){
-            return "Team: "+team2.getName()+" won!";
+            return "Team "+team2.getName()+" won!";
         }
         else{
             return "It's a draw!";

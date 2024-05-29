@@ -26,4 +26,8 @@
     <string name="question">Question</string>
     <string name="cancel">Cancel</string>
     <string name="wrong">Wrong</string>
+    <string name="home">Home</string>
+    <string name="play_again">Play Again</string>
+    <string name="game_over">Game over!</string>
+    <string name="results">Results!</string>
 </resources>

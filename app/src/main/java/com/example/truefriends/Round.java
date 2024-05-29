@@ -25,7 +25,7 @@ public class Round {
     public void setAnswer(boolean answer) {
         this.answer = answer;
         if (answer){
-            team.addPoints(question.getValue());
+            team.addPoints(question.getDifficulty().getPoints());
         }
     }
 }

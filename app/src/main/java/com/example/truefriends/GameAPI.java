@@ -7,35 +7,41 @@ public class GameAPI {
     private List<Question> questionList;
     private final int totalRounds = 10;
     private Game game;
+    //public QuestionGenerator questionGenerator;
 
     public GameAPI(){
-
+        //questionGenerator = new QuestionGenerator();
+        questionList = QuestionGenerator.generateQuestions();
     }
 
+    /*
     public void setQuestionList(List<Question> questionList){
         this.questionList = questionList;
     }
+
+     */
 
     public void startGame(String team1Name, String team2Name){
         this.game = new Game(new Team(team1Name), new Team(team2Name), questionList);
     }
 
-    public String chooseCategoryButton(String category){
+    public String chooseCategoryButton(Category category){
         return game.newQuestion(category).getQuestion();
     }
 
-    public void checkToContinue(){
-        if (game.getCurrentRound().getNumber()<totalRounds){
+    public String checkToContinue() {
+        Round currentRound = game.getCurrentRound();
+        if (currentRound.getNumber() == totalRounds && currentRound.getTeam().getName().equals(game.getTeam2().getName())) {
+            return (game.getWinningTeam());
+        } else {
             game.newRound();
-        }
-        else{
-            System.out.println(game.getWinningTeam());
+            return null;
         }
     }
 
-    public void answerButton(boolean answer){
+    public String answerButton(boolean answer){
         game.giveAnswer(answer);
-        checkToContinue();
+        return checkToContinue();
     }
 
     public Game getGame(){

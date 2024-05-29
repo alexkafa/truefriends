@@ -17,6 +17,7 @@
         android:layout_marginEnd="77dp"
         android:backgroundTint="#0DEA16"
         android:text="@string/right"
+        android:textColor="#FFFFFF"
         android:onClick="teamAnsweredRight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuestion" />
@@ -62,6 +63,7 @@
         android:layout_marginTop="85dp"
         android:backgroundTint="#FB0E0E"
         android:text="@string/wrong"
+        android:textColor="#FFFFFF"
         android:onClick="teamAnsweredWrong"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewQuestion" />

@@ -23,35 +23,35 @@ public class Third extends AppCompatActivity {
 
     public void showQuestion(View view) {
         Intent intent = new Intent(this, QuestionActivity.class);
-        String category = "Default category";
+        Category category ;
         int id = view.getId();
 
         if (id == R.id.imageButton1) {
-            category = "Dates";
+            category = Category.DATES;
         }
         else if (id == R.id.imageButton2) {
-            category = "Hopes and Dreams";
+            category = Category.HOPES_DREAMS;
         }
         else if (id == R.id.imageButton3) {
-            category = "Gossip";
+            category = Category.GOSSIP;
         }
         else if (id == R.id.imageButton4) {
-            category = "Binary";
+            category = Category.BINARY_QUESTIONS;
         }
         else if (id == R.id.imageButton5) {
-            category = "Top 5";
+            category = Category.TOP_5;
         }
         else if (id == R.id.imageButton6) {
-            category = "Names";
+            category = Category.NAMES;
         }
         else if (id == R.id.imageButton7) {
-            category = "Ancient History";
+            category = Category.ANCIENT_HISTORY;
         }
         else if (id == R.id.imageButton8) {
-            category = "Hobbies";
+            category = Category.HOBBIES;
         }
         else {
-            category = "True Friends";
+            category = Category.TRUE_FRIEND;
         }
 
         //System.out.println(category);
