@@ -15,7 +15,8 @@ import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE = "questions.db";
+    private static final String DATABASE_NAME = "questions";
+    private static final int DATABASE_VERSION = 2;
     @SuppressLint("StaticFieldLeak")
     private static DatabaseHelper instance;
     private static String DATABASE_PATH;
@@ -28,19 +29,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "difficulty TEXT NOT NULL, " +
                     "question TEXT NOT NULL);";
 
-
     private DatabaseHelper(@Nullable Context context) {
-        super(context, DATABASE, null, 2); this.context = context;
-        DATABASE_PATH = context.getDatabasePath(DATABASE).getPath();
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
+        assert context != null;
+        DATABASE_PATH = context.getDatabasePath(DATABASE_NAME).getPath();
+        // Ensure the database path is initialized
+        getReadableDatabase();
         copyDatabase();
     }
 
-    public static DatabaseHelper getInstance(Context context){
-        if(instance == null){
+    public static synchronized DatabaseHelper getInstance(Context context) {
+        if (instance == null) {
             instance = new DatabaseHelper(context.getApplicationContext());
         }
         return instance;
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
@@ -48,29 +53,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE questions;");
-        db.close();
+        db.execSQL("DROP TABLE IF EXISTS questions;");
+        onCreate(db);
     }
+
     private void copyDatabase() {
         if (!checkDb()) {
-            this.getReadableDatabase();
-            this.close();
             try {
                 copyDatabaseFromAssets();
-                Log.d("DB", "Database copied");
+                Log.d("DB", "Database copied to " + DATABASE_PATH);
             } catch (Exception e) {
-                Log.e("DB","Error copying database", e);
+                Log.e("DB", "Error copying database", e);
             }
+        } else {
+            Log.d("DB", "Database already exists at " + DATABASE_PATH);
         }
     }
-    private boolean checkDb(){
+
+
+    private boolean checkDb() {
         File dbFile = new File(DATABASE_PATH);
-        return dbFile.exists();
+        boolean exists = dbFile.exists();
+        Log.d("DB", "Database exists: " + exists);
+        return exists;
     }
 
     private void copyDatabaseFromAssets() throws Exception {
-        InputStream input = context.getAssets().open(DATABASE);
-        OutputStream output = new FileOutputStream(DATABASE_PATH);
+        InputStream input = context.getAssets().open(DATABASE_NAME);
+        String outFileName = DATABASE_PATH;
+        Log.d("DB", "Copying database to: " + outFileName); // Add this line for logging
+        OutputStream output = new FileOutputStream(outFileName);
         byte[] buffer = new byte[1024];
         int length;
         while ((length = input.read(buffer)) > 0) {
@@ -79,5 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         output.flush();
         output.close();
         input.close();
+        Log.d("DB", "Database copy completed");
     }
+
 }

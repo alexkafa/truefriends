@@ -1,6 +1,7 @@
 package com.example.truefriends;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.truefriends.data.QuestionRepository;
 
@@ -32,20 +33,20 @@ public class Game {
         }
     }
 
-    public Question newQuestion(Category category){
+    public Question newQuestion(Category category) {
         List<Question> questionList = questionRepository.getAllQuestionsOfCategory(category);
-        //List<Question> questionList = questionRepository.getAllQuestions();
-        Question newQuestion =  questionList.stream()
-                .filter(q -> q.getCategory().equals(category))
-                .skip(random.nextInt((int) questionList.stream().filter(q -> q.getCategory().equals(category)).count()))
-                .findFirst()
-                .orElse(null);
 
+        if (questionList.isEmpty()) {
+            // Handle the case where there are no questions in the selected category
+            Log.e("Game", "No questions available for category: " + category);
+            return null; // or throw an exception, or return a default question
+        }
+
+        Question newQuestion = questionList.get(random.nextInt(questionList.size()));
         currentRound.setQuestion(newQuestion);
-        //assert newQuestion != null;
-        //System.out.println(newQuestion.getQuestion());
         return newQuestion;
     }
+
 
     public void giveAnswer(boolean correct){
         currentRound.setAnswer(correct);

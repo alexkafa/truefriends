@@ -26,9 +26,14 @@ public class GameAPI {
         this.game = new Game(new Team(team1Name), new Team(team2Name), context);
     }
 
-    public String chooseCategoryButton(Category category){
-        return game.newQuestion(category).getQuestion();
+    public String chooseCategoryButton(Category category) {
+        Question question = game.newQuestion(category);
+        if (question == null) {
+            return "No questions available for the selected category.";
+        }
+        return question.getQuestion();
     }
+
 
     public String checkToContinue() {
         Round currentRound = game.getCurrentRound();
