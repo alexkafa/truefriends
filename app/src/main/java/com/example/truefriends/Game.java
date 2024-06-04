@@ -1,5 +1,9 @@
 package com.example.truefriends;
 
+import android.content.Context;
+
+import com.example.truefriends.data.QuestionRepository;
+
 import java.util.List;
 import java.util.Random;
 
@@ -7,17 +11,16 @@ public class Game {
 
     private final Team team1;
     private final Team team2;
-    private final List<Question> questionList;
-
     private Round currentRound;
     private final Random random;
+    private final QuestionRepository questionRepository;
 
-    public Game(Team team1, Team team2, List<Question> questionList){
+    public Game(Team team1, Team team2, Context context){
         this.team1 = team1;
         this.team2 = team2;
-        this.questionList = questionList;
         this.random = new Random();
         this.currentRound = new Round(1, team1);
+        this.questionRepository = new QuestionRepository(context);
     }
 
     public void newRound(){
@@ -30,6 +33,8 @@ public class Game {
     }
 
     public Question newQuestion(Category category){
+        List<Question> questionList = questionRepository.getAllQuestionsOfCategory(category);
+        //List<Question> questionList = questionRepository.getAllQuestions();
         Question newQuestion =  questionList.stream()
                 .filter(q -> q.getCategory().equals(category))
                 .skip(random.nextInt((int) questionList.stream().filter(q -> q.getCategory().equals(category)).count()))
@@ -37,6 +42,8 @@ public class Game {
                 .orElse(null);
 
         currentRound.setQuestion(newQuestion);
+        //assert newQuestion != null;
+        //System.out.println(newQuestion.getQuestion());
         return newQuestion;
     }
 

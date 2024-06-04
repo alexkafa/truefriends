@@ -1,17 +1,18 @@
 package com.example.truefriends;
 
+import android.content.Context;
+
 import java.util.List;
 
 public class GameAPI {
 
-    private List<Question> questionList;
     private final int totalRounds = 10;
     private Game game;
+    private Context context;
     //public QuestionGenerator questionGenerator;
 
-    public GameAPI(){
-        //questionGenerator = new QuestionGenerator();
-        questionList = QuestionGenerator.generateQuestions();
+    public GameAPI(Context context){
+        this.context=context;
     }
 
     /*
@@ -22,7 +23,7 @@ public class GameAPI {
      */
 
     public void startGame(String team1Name, String team2Name){
-        this.game = new Game(new Team(team1Name), new Team(team2Name), questionList);
+        this.game = new Game(new Team(team1Name), new Team(team2Name), context);
     }
 
     public String chooseCategoryButton(Category category){
