@@ -1,7 +1,9 @@
 package com.example.truefriends;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ResultPage extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +29,23 @@ public class ResultPage extends AppCompatActivity {
 
         TextView resultsTextView = findViewById(R.id.textViewResults);
         String results = getIntent().getStringExtra("RESULTS");
-        resultsTextView.setText(results);
+        if (results != null) {
+            resultsTextView.setText(results);
+        } else {
+            Log.e("ResultPage", "No results received.");
+            resultsTextView.setText("No results available.");
+        }
     }
 
     public void goBackToMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        Log.d("ResultPage", "Navigated back to MainActivity.");
     }
 
     public void goToSecond(View view) {
         Intent intent = new Intent(this, Second.class);
         startActivity(intent);
+        Log.d("ResultPage", "Navigated to Second activity.");
     }
 }

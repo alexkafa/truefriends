@@ -6,23 +6,38 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
 public class Third extends AppCompatActivity {
+    private GameAPI gameAPI;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
+        gameAPI = ((MainActivity) getApplicationContext()).getGameAPI();
+        if (gameAPI == null) {
+            Log.e("Third", "GameAPI is not initialized.");
+            Toast.makeText(this, "Error: GameAPI is not initialized.", Toast.LENGTH_SHORT).show();
+            finish(); // Close the activity if GameAPI is not initialized
+            return;
+        }
+
         TextView teamNameTextView = findViewById(R.id.textView);
-        teamNameTextView.setText("Team: "+MainActivity.gameAPI.getCurrentTeamName());
+        teamNameTextView.setText("Team: " + gameAPI.getCurrentTeamName());
     }
 
     public void showQuestion(View view) {
+        if (gameAPI == null) {
+            Log.e("Third", "GameAPI is not initialized.");
+            Toast.makeText(this, "Error: GameAPI is not initialized.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent intent = new Intent(this, QuestionActivity.class);
         Category category;
         int id = view.getId();
@@ -47,17 +62,16 @@ public class Third extends AppCompatActivity {
             category = Category.TRUE_FRIEND;
         }
 
-        String question = MainActivity.gameAPI.chooseCategoryButton(category);
+        String question = gameAPI.chooseCategoryButton(category);
         if (question.equals("No questions available for the selected category.")) {
-            // Handle the case where no question is available
             Log.e("Third", "No questions available for category: " + category);
-            return; // or show a message to the user
+            Toast.makeText(this, "No questions available for the selected category.", Toast.LENGTH_SHORT).show();
+            return; // Show a message to the user
         }
 
         intent.putExtra("QUESTION", question);
         startActivity(intent);
     }
-
 
     public void cancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);

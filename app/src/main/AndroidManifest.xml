@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Add the permissions here -->
+    <!-- Permissions for accessing external storage (consider removing if not needed) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
@@ -19,28 +19,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Truefriends"
         tools:targetApi="31">
+
+        <!-- ResultPage Activity -->
         <activity
             android:name=".ResultPage"
             android:exported="false" />
+
+        <!-- QuestionActivity Activity -->
         <activity
             android:name=".QuestionActivity"
             android:exported="false" />
+
+        <!-- RulesActivity Activity -->
         <activity
             android:name=".RulesActivity"
             android:exported="false" />
+
+        <!-- Third Activity -->
         <activity
             android:name=".Third"
             android:exported="false" />
+
+        <!-- Second Activity -->
         <activity android:name=".Second" />
+
+        <!-- MainActivity (Launcher Activity) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

@@ -23,22 +23,27 @@ public class DBInitializer {
         boolean isDbInitialized = prefs.getBoolean(DB_INITIALIZED_KEY, false);
 
         if (!isDbInitialized) {
-            Log.d("DBInitializer", "Initializing database with sample questions"); // Add this line
-            addQuestionsForCategory(Category.ANCIENT_HISTORY);
-            addQuestionsForCategory(Category.NAMES);
-            addQuestionsForCategory(Category.DATES);
-            addQuestionsForCategory(Category.HOBBIES);
-            addQuestionsForCategory(Category.TRUE_FRIEND);
-            addQuestionsForCategory(Category.HOPES_DREAMS);
-            addQuestionsForCategory(Category.GOSSIP);
-            addQuestionsForCategory(Category.BINARY_QUESTIONS);
-            addQuestionsForCategory(Category.TOP_5);
+            Log.d("DBInitializer", "Initializing database with sample questions");
+            try {
+                addQuestionsForCategory(Category.ANCIENT_HISTORY);
+                addQuestionsForCategory(Category.NAMES);
+                addQuestionsForCategory(Category.DATES);
+                addQuestionsForCategory(Category.HOBBIES);
+                addQuestionsForCategory(Category.TRUE_FRIEND);
+                addQuestionsForCategory(Category.HOPES_DREAMS);
+                addQuestionsForCategory(Category.GOSSIP);
+                addQuestionsForCategory(Category.BINARY_QUESTIONS);
+                addQuestionsForCategory(Category.TOP_5);
 
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putBoolean(DB_INITIALIZED_KEY, true);
-            editor.apply();
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean(DB_INITIALIZED_KEY, true);
+                editor.apply();
+                Log.d("DBInitializer", "Database initialization complete");
+            } catch (Exception e) {
+                Log.e("DBInitializer", "Error during database initialization", e);
+            }
         } else {
-            Log.d("DBInitializer", "Database already initialized"); // Add this line
+            Log.d("DBInitializer", "Database already initialized");
         }
     }
 
@@ -50,8 +55,12 @@ public class DBInitializer {
                     Difficulty.EASY, // You can change this to vary the difficulty
                     "Sample question " + i + " for " + category.name()
             );
-            questionRepository.addQuestion(question);
-            Log.d("DBInitializer", "Added question: " + question.getQuestion()); // Add this line
+            try {
+                questionRepository.addQuestion(question);
+                Log.d("DBInitializer", "Added question: " + question.getQuestion());
+            } catch (Exception e) {
+                Log.e("DBInitializer", "Error adding question: " + question.getQuestion(), e);
+            }
         }
     }
 }

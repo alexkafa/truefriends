@@ -1,12 +1,14 @@
 package com.example.truefriends;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RulesActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +20,7 @@ public class RulesActivity extends AppCompatActivity {
                 "know each other!\nThe rules are simple; Divide your friend group in two teams and pick " +
                 "names for your teams. After that, you go through 20 rounds of questions that can be either " +
                 "answered right or wrong - your opponent team decides that. Before each question, you get " +
-                "to pick the category (see categories bellow). In the end the team with the highest score wins" +
+                "to pick the category (see categories below). In the end the team with the highest score wins" +
                 " and gets the good apartment...erh sorry...you can choose your own bet!\n\n\n" +
                 "Categories:\n1. Dates: Questions that are answered with a date.\n2. Hopes and Dreams: " +
                 "Questions about your friends' future plans\n3. Gossip: No explanation needed.\n4. Binary: Yes/No " +
@@ -27,9 +29,15 @@ public class RulesActivity extends AppCompatActivity {
                 "Your own 2 questions!";
 
         TextView textRules = findViewById(R.id.textView2);
-        textRules.setText(rules);
+        if (textRules != null) {
+            textRules.setText(rules);
+        } else {
+            Log.e("RulesActivity", "TextView for rules not found");
+        }
     }
+
     public void goBackToMain(View view) {
-        finish(); // Κλείνει την τρέχουσα δραστηριότητα και επιστρέφει στην προηγούμενη
+        Log.d("RulesActivity", "Navigating back to MainActivity");
+        finish(); // Closes the current activity and returns to the previous one
     }
 }

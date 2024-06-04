@@ -26,11 +26,11 @@ public class Game {
 
     public void newRound(){
         if (currentRound.getTeam().equals(team1)){
-            currentRound = new Round(currentRound.getNumber()+1, team2);
+            currentRound = new Round(currentRound.getNumber() + 1, team2);
+        } else {
+            currentRound = new Round(currentRound.getNumber() + 1, team1);
         }
-        else{
-            currentRound = new Round(currentRound.getNumber()+1, team1);
-        }
+        Log.d("Game", "New round started: " + currentRound.getNumber());
     }
 
     public Question newQuestion(Category category) {
@@ -44,27 +44,26 @@ public class Game {
 
         Question newQuestion = questionList.get(random.nextInt(questionList.size()));
         currentRound.setQuestion(newQuestion);
+        Log.d("Game", "New question set for round " + currentRound.getNumber() + ": " + newQuestion.getQuestion());
         return newQuestion;
     }
 
-
     public void giveAnswer(boolean correct){
         currentRound.setAnswer(correct);
+        Log.d("Game", "Answer given for round " + currentRound.getNumber() + ": " + (correct ? "correct" : "incorrect"));
     }
 
     public String getWinningTeam(){
-        if (team1.getPoints()>team2.getPoints()){
-            return "Team "+team1.getName()+" won!";
-        }
-        else if (team2.getPoints()>team1.getPoints()){
-            return "Team "+team2.getName()+" won!";
-        }
-        else{
+        if (team1.getPoints() > team2.getPoints()){
+            return "Team " + team1.getName() + " won!";
+        } else if (team2.getPoints() > team1.getPoints()){
+            return "Team " + team2.getName() + " won!";
+        } else {
             return "It's a draw!";
         }
     }
-    public Round getCurrentRound() {return currentRound;}
-    public Team getTeam1() {return team1;}
-    public Team getTeam2() {return team2;}
 
+    public Round getCurrentRound() { return currentRound; }
+    public Team getTeam1() { return team1; }
+    public Team getTeam2() { return team2; }
 }

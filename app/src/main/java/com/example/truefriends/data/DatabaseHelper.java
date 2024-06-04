@@ -15,7 +15,7 @@ import java.io.OutputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "questions";
+    private static final String DATABASE_NAME = "questions.db";
     private static final int DATABASE_VERSION = 2;
     @SuppressLint("StaticFieldLeak")
     private static DatabaseHelper instance;
@@ -32,11 +32,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
-        assert context != null;
-        DATABASE_PATH = context.getDatabasePath(DATABASE_NAME).getPath();
-        // Ensure the database path is initialized
-        getReadableDatabase();
-        copyDatabase();
+        if (context != null) {
+            DATABASE_PATH = context.getDatabasePath(DATABASE_NAME).getPath();
+            // Ensure the database path is initialized
+            getReadableDatabase();
+            copyDatabase();
+        } else {
+            Log.e("DB", "Context is null in DatabaseHelper constructor");
+        }
     }
 
     public static synchronized DatabaseHelper getInstance(Context context) {
@@ -48,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(TABLE_CREATE);
+        // Database should already be created, so no need to create tables here
     }
 
     @Override
@@ -70,7 +73,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-
     private boolean checkDb() {
         File dbFile = new File(DATABASE_PATH);
         boolean exists = dbFile.exists();
@@ -79,19 +81,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private void copyDatabaseFromAssets() throws Exception {
-        InputStream input = context.getAssets().open(DATABASE_NAME);
-        String outFileName = DATABASE_PATH;
-        Log.d("DB", "Copying database to: " + outFileName); // Add this line for logging
-        OutputStream output = new FileOutputStream(outFileName);
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = input.read(buffer)) > 0) {
-            output.write(buffer, 0, length);
-        }
-        output.flush();
-        output.close();
-        input.close();
-        Log.d("DB", "Database copy completed");
-    }
+        try (InputStream input = context.getAssets().open(DATABASE_NAME);
+             OutputStream output = new FileOutputStream(DATABASE_PATH)) {
 
+            Log.d("DB", "Copying database to: " + DATABASE_PATH);
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = input.read(buffer)) > 0) {
+                output.write(buffer, 0, length);
+            }
+            output.flush();
+            Log.d("DB", "Database copy completed");
+        }
+    }
 }

@@ -30,4 +30,6 @@
     <string name="play_again">Play Again</string>
     <string name="game_over">Game over!</string>
     <string name="results">Results!</string>
+    <string name="here_are_the_rules_of_the_game">Here are the rules of the game...</string>
+    <string name="back">Back</string>
 </resources>
