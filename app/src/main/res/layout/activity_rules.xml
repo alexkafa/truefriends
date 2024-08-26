@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/here_are_the_rules_of_the_game"
+        android:text="@string/game_description"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,19 +32,28 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="316dp"
-        android:layout_height="550dp"
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="48dp"
-        android:background="#570A0B12"
-        android:text="@string/rules"
-        android:textColor="#FAF7F7"
+        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRules" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewRules"
+        app:layout_constraintBottom_toTopOf="@+id/buttonBack">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#570A0B12"
+            android:text="@string/rules"
+            android:textColor="#FAF7F7"
+            android:padding="16dp" />
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

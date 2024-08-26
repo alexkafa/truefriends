@@ -19,7 +19,7 @@ public class Second extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        gameAPI = ((MainActivity) getApplicationContext()).getGameAPI();
+        gameAPI = ((MyApp) getApplicationContext()).getGameAPI();
 
         findViewById(R.id.buttonNext).setOnClickListener(new View.OnClickListener() {
             @Override

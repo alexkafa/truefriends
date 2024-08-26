@@ -5,7 +5,7 @@ import android.util.Log;
 
 public class GameAPI {
 
-    private final int totalRounds = 10;
+    private final int totalRounds = 20;
     private Game game;
     private final Context context;
 

@@ -22,21 +22,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DATABASE_PATH;
     private final Context context;
 
-    private static final String TABLE_CREATE =
-            "CREATE TABLE questions (" +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "category TEXT NOT NULL, " +
-                    "difficulty TEXT NOT NULL, " +
-                    "question TEXT NOT NULL);";
-
     private DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
         if (context != null) {
             DATABASE_PATH = context.getDatabasePath(DATABASE_NAME).getPath();
-            // Ensure the database path is initialized
-            getReadableDatabase();
+            Log.d("DB", "Database path set to: " + DATABASE_PATH);
+            // Ensure the database is copied before it is opened
             copyDatabase();
+            getReadableDatabase();
         } else {
             Log.e("DB", "Context is null in DatabaseHelper constructor");
         }
@@ -51,13 +45,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Database should already be created, so no need to create tables here
+        // Not creating tables here as the database is prepopulated and copied from assets
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS questions;");
-        onCreate(db);
+        // Handle upgrades if needed; typically updating the prepopulated DB in assets
+        Log.d("DB", "Upgrading database from version " + oldVersion + " to " + newVersion);
     }
 
     private void copyDatabase() {

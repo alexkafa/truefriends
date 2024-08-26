@@ -19,14 +19,16 @@ public class RulesActivity extends AppCompatActivity {
                 "find out? Well, with this game it's your turn to find out how well you and your friends " +
                 "know each other!\nThe rules are simple; Divide your friend group in two teams and pick " +
                 "names for your teams. After that, you go through 20 rounds of questions that can be either " +
-                "answered right or wrong - your opponent team decides that. Before each question, you get " +
-                "to pick the category (see categories below). In the end the team with the highest score wins" +
-                " and gets the good apartment...erh sorry...you can choose your own bet!\n\n\n" +
+                "answered right or wrong - your opponent team decides that. All team members go through turns to ask the questions. " +
+                "For every correct answer, your team " +
+                "gets 2 points if the question is EASY, 3 if it's MEDIUM and 5 if it's HARD. Before each question, " +
+                "you get to pick the category (see categories below). In the end the team with the highest score wins" +
+                " and gets the good apartment...erh sorry...i guess you can choose your own bet!\n\n\n" +
                 "Categories:\n1. Dates: Questions that are answered with a date.\n2. Hopes and Dreams: " +
-                "Questions about your friends' future plans\n3. Gossip: No explanation needed.\n4. Binary: Yes/No " +
-                "questions.\n5. Top 5: Name the top 5...\n6. Names: Questions that are answered with names.\n" +
-                "7. Ancient History: A.k.a. past events.\n8. Hobbies: A.k.a hobbies\n9. True Friends: " +
-                "Your own 2 questions!";
+                "Questions about dreams and future plans.\n3. Gossip: Gossip-related questions.\n4. Binary: " +
+                "Questions that are answered with yes or no.\n5. Top 5: Questions that begin with the phrase 'Name the top 5...'.\n6. Names: Questions that are answered with names.\n" +
+                "7. Ancient History: Questions that refer to past events.\n8. Hobbies: Hobbies and activities related questions.\n9. True Friends: " +
+                "Random questions.";
 
         TextView textRules = findViewById(R.id.textView2);
         if (textRules != null) {

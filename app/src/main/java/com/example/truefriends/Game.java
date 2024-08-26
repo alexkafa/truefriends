@@ -5,8 +5,10 @@ import android.util.Log;
 
 import com.example.truefriends.data.QuestionRepository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class Game {
 
@@ -15,6 +17,10 @@ public class Game {
     private Round currentRound;
     private final Random random;
     private final QuestionRepository questionRepository;
+
+    // Track used question IDs
+    private final Set<Integer> usedQuestionIdsTeam1 = new HashSet<>();
+    private final Set<Integer> usedQuestionIdsTeam2 = new HashSet<>();
 
     public Game(Team team1, Team team2, Context context){
         this.team1 = team1;
@@ -37,13 +43,28 @@ public class Game {
         List<Question> questionList = questionRepository.getAllQuestionsOfCategory(category);
 
         if (questionList.isEmpty()) {
-            // Handle the case where there are no questions in the selected category
             Log.e("Game", "No questions available for category: " + category);
+            return null;
+        }
+
+        // Determine which set of used question IDs to use
+        Set<Integer> usedQuestionIds = currentRound.getTeam().equals(team1) ? usedQuestionIdsTeam1 : usedQuestionIdsTeam2;
+
+        // Filter out used questions based on their IDs
+        questionList.removeIf(question -> usedQuestionIds.contains(question.getId()));
+
+        if (questionList.isEmpty()) {
+            Log.e("Game", "No more unused questions available for category: " + category);
             return null; // or throw an exception, or return a default question
         }
 
+        // Select a random question from the remaining list
         Question newQuestion = questionList.get(random.nextInt(questionList.size()));
         currentRound.setQuestion(newQuestion);
+
+        // Mark the question ID as used for the current team
+        usedQuestionIds.add(newQuestion.getId());
+
         Log.d("Game", "New question set for round " + currentRound.getNumber() + ": " + newQuestion.getQuestion());
         return newQuestion;
     }

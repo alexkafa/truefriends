@@ -32,4 +32,7 @@
     <string name="results">Results!</string>
     <string name="here_are_the_rules_of_the_game">Here are the rules of the game...</string>
     <string name="back">Back</string>
+    <string name="game_description">Game description</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="team_b_12">Team B: 12</string>
 </resources>

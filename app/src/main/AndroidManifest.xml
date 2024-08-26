@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Truefriends"
+        android:name=".MyApp"
         tools:targetApi="31">
 
         <!-- ResultPage Activity -->

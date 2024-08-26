@@ -19,7 +19,7 @@ public class Third extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
-        gameAPI = ((MainActivity) getApplicationContext()).getGameAPI();
+        gameAPI = ((MyApp) getApplicationContext()).getGameAPI();
         if (gameAPI == null) {
             Log.e("Third", "GameAPI is not initialized.");
             Toast.makeText(this, "Error: GameAPI is not initialized.", Toast.LENGTH_SHORT).show();
@@ -28,7 +28,15 @@ public class Third extends AppCompatActivity {
         }
 
         TextView teamNameTextView = findViewById(R.id.textView);
-        teamNameTextView.setText("Team: " + gameAPI.getCurrentTeamName());
+        teamNameTextView.setText("Team: " + gameAPI.getCurrentTeamName() + ", Round: " + gameAPI.getGame().getCurrentRound().getNumber());
+
+        TextView teamAScoreTextView = findViewById(R.id.teamAScoreTextView);
+        Team teamA = gameAPI.getGame().getTeam1();
+        teamAScoreTextView.setText(teamA.getName() + ": " + teamA.getPoints());
+
+        TextView teamBScoreTextView = findViewById(R.id.teamBScoreTextView);
+        Team teamB = gameAPI.getGame().getTeam2();
+        teamBScoreTextView.setText(teamB.getName() + ": " + teamB.getPoints());
     }
 
     public void showQuestion(View view) {

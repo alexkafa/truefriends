@@ -45,7 +45,7 @@
         android:layout_marginEnd="135dp"
         android:backgroundTint="#FFA500"
         android:onClick="openRulesPage"
-        android:text="@string/rules"
+        android:text="@string/game_description"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"

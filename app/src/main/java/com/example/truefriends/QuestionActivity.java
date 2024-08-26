@@ -19,7 +19,7 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
-        gameAPI = ((MainActivity) getApplicationContext()).getGameAPI();
+        gameAPI = ((MyApp) getApplicationContext()).getGameAPI();
         if (gameAPI == null) {
             Log.e("QuestionActivity", "GameAPI is not initialized.");
             Toast.makeText(this, "Error: GameAPI is not initialized.", Toast.LENGTH_SHORT).show();
@@ -28,12 +28,15 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
         TextView teamNameTextView = findViewById(R.id.teamNameTextView);
-        teamNameTextView.setText("Team: " + gameAPI.getCurrentTeamName());
+        teamNameTextView.setText("Team: " + gameAPI.getCurrentTeamName() + ", Round: " + gameAPI.getGame().getCurrentRound().getNumber());
 
         TextView questionTextView = findViewById(R.id.textViewQuestion);
         String question = getIntent().getStringExtra("QUESTION");
         if (question != null) {
             questionTextView.setText(question);
+
+            TextView difficultyTextView = findViewById(R.id.difficultyTextView);
+            difficultyTextView.setText("Difficulty: " + gameAPI.getGame().getCurrentRound().getQuestion().getDifficulty());
         } else {
             Log.e("QuestionActivity", "No question received.");
             Toast.makeText(this, "Error: No question received.", Toast.LENGTH_SHORT).show();
