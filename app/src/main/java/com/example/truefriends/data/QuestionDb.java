@@ -13,14 +13,28 @@ import com.example.truefriends.Question;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A concrete implementation of the IDb interface for managing Question objects in an SQLite database.
+ * This class handles the creation, retrieval, updating, and deletion of questions, as well as specific queries.
+ */
 public class QuestionDb implements IDb<Question> {
 
     private final DatabaseHelper databaseHelper;
 
+    /**
+     * Constructor that initializes the DatabaseHelper instance.
+     *
+     * @param context The application context used to initialize the DatabaseHelper.
+     */
     public QuestionDb(Context context) {
         databaseHelper = DatabaseHelper.getInstance(context);
     }
 
+    /**
+     * Adds a new Question to the database.
+     *
+     * @param question The Question object to be added.
+     */
     @Override
     public void add(Question question) {
         try (SQLiteDatabase db = databaseHelper.getWritableDatabase()) {
@@ -35,6 +49,12 @@ public class QuestionDb implements IDb<Question> {
         }
     }
 
+    /**
+     * Retrieves a Question from the database using its unique ID.
+     *
+     * @param id The unique ID of the Question to retrieve.
+     * @return The Question object if found, otherwise null.
+     */
     @Override
     public Question get(int id) {
         Question question = null;
@@ -58,6 +78,11 @@ public class QuestionDb implements IDb<Question> {
         return question;
     }
 
+    /**
+     * Retrieves all Question objects from the database.
+     *
+     * @return A list of all Question objects stored in the database.
+     */
     @Override
     public List<Question> getAll() {
         List<Question> questions = new ArrayList<>();
@@ -82,6 +107,13 @@ public class QuestionDb implements IDb<Question> {
         return questions;
     }
 
+    /**
+     * Retrieves a list of Question objects that match a specific field value.
+     *
+     * @param fieldName The name of the field to filter by.
+     * @param value The value that the specified field should match.
+     * @return A list of Question objects that match the specified field value.
+     */
     @Override
     public List<Question> getByField(String fieldName, String value) {
         List<Question> questions = new ArrayList<>();
@@ -108,6 +140,11 @@ public class QuestionDb implements IDb<Question> {
         return questions;
     }
 
+    /**
+     * Updates an existing Question in the database.
+     *
+     * @param question The Question object with updated values to be stored.
+     */
     @Override
     public void update(Question question) {
         try (SQLiteDatabase db = databaseHelper.getWritableDatabase()) {
@@ -122,6 +159,11 @@ public class QuestionDb implements IDb<Question> {
         }
     }
 
+    /**
+     * Deletes a Question from the database using its unique ID.
+     *
+     * @param id The unique ID of the Question to delete.
+     */
     @Override
     public void delete(int id) {
         try (SQLiteDatabase db = databaseHelper.getWritableDatabase()) {
@@ -132,7 +174,12 @@ public class QuestionDb implements IDb<Question> {
         }
     }
 
-    // Specific method for QuestionDb
+    /**
+     * Retrieves all Question objects that belong to a specific Category.
+     *
+     * @param category The Category to filter by.
+     * @return A list of Question objects that belong to the specified Category.
+     */
     public List<Question> getAllOfCategory(Category category) {
         return getByField("category", category.name());
     }

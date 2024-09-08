@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#011250"
     android:backgroundTint="#011250"
-    tools:context=".ResultPage">
+    tools:context=".ResultPageActivity">
 
     <TextView
         android:id="@+id/textViewResults"
@@ -36,7 +36,7 @@
         android:layout_marginEnd="51dp"
         android:text="@string/game_over"
         android:textAlignment="center"
-        android:textColor="#C2C6C6"
+        android:textColor="#FFC107"
         android:textSize="34sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"

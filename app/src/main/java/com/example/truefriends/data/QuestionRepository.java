@@ -8,15 +8,30 @@ import com.example.truefriends.Question;
 
 import java.util.List;
 
+/**
+ * The QuestionRepository class serves as a higher-level abstraction for managing Question objects.
+ * It provides a clean interface for the app to interact with the data layer, using the QuestionDb class
+ * to perform the actual database operations.
+ */
 public class QuestionRepository {
 
     private static final String TAG = "QuestionRepository";
     private final QuestionDb questionDb;
 
+    /**
+     * Constructor that initializes the QuestionDb instance.
+     *
+     * @param context The application context used to initialize the QuestionDb.
+     */
     public QuestionRepository(Context context) {
         questionDb = new QuestionDb(context);
     }
 
+    /**
+     * Adds a new Question to the database.
+     *
+     * @param question The Question object to be added.
+     */
     public void addQuestion(Question question) {
         try {
             questionDb.add(question);
@@ -26,6 +41,12 @@ public class QuestionRepository {
         }
     }
 
+    /**
+     * Retrieves a Question from the database using its unique ID.
+     *
+     * @param id The unique ID of the Question to retrieve.
+     * @return The Question object if found, otherwise null.
+     */
     public Question getQuestion(int id) {
         try {
             Question question = questionDb.get(id);
@@ -41,6 +62,11 @@ public class QuestionRepository {
         }
     }
 
+    /**
+     * Retrieves all Question objects from the database.
+     *
+     * @return A list of all Question objects stored in the database.
+     */
     public List<Question> getAllQuestions() {
         try {
             List<Question> questions = questionDb.getAll();
@@ -52,6 +78,12 @@ public class QuestionRepository {
         }
     }
 
+    /**
+     * Retrieves all Question objects that belong to a specific Category.
+     *
+     * @param category The Category to filter by.
+     * @return A list of Question objects that belong to the specified Category.
+     */
     public List<Question> getAllQuestionsOfCategory(Category category) {
         try {
             List<Question> questions = questionDb.getAllOfCategory(category);
@@ -63,6 +95,11 @@ public class QuestionRepository {
         }
     }
 
+    /**
+     * Updates an existing Question in the database.
+     *
+     * @param question The Question object with updated values to be stored.
+     */
     public void updateQuestion(Question question) {
         try {
             questionDb.update(question);
@@ -72,6 +109,11 @@ public class QuestionRepository {
         }
     }
 
+    /**
+     * Deletes a Question from the database using its unique ID.
+     *
+     * @param id The unique ID of the Question to delete.
+     */
     public void deleteQuestion(int id) {
         try {
             questionDb.delete(id);

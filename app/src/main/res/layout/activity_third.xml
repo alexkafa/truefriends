@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#011250"
-    tools:context=".Third">
+    tools:context=".ThirdActivity">
 
     <TextView
         android:id="@+id/teamBScoreTextView"
@@ -25,39 +25,38 @@
         android:id="@+id/imageButton3"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginTop="188dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/gossip"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton1"
+        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8"
         app:srcCompat="@drawable/gossip_icon" />
 
     <ImageButton
         android:id="@+id/imageButton9"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/truefriends"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/true_friend_icon"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:srcCompat="@drawable/true_friend_icon" />
 
     <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="90dp"
         android:layout_height="80dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="232dp"
-        android:layout_marginEnd="30dp"
         android:contentDescription="@string/dates"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton6"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/dates_icon" />
 
@@ -65,12 +64,12 @@
         android:id="@+id/imageButton2"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/hoppesndreams"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6"
         app:srcCompat="@drawable/hopes_dreams_icon" />
 
@@ -78,12 +77,12 @@
         android:id="@+id/imageButton4"
         android:layout_width="90dp"
         android:layout_height="80dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="52dp"
-        android:layout_marginEnd="160dp"
         android:contentDescription="@string/binary"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton9"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2"
         app:srcCompat="@drawable/binary_icon" />
 
@@ -91,57 +90,50 @@
         android:id="@+id/imageButton6"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="232dp"
-        android:layout_marginEnd="41dp"
         android:contentDescription="@string/names"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/names"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="@drawable/names" />
 
     <ImageButton
         android:id="@+id/imageButton7"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/ancienthistory"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5"
         app:srcCompat="@drawable/ancient_history_icon" />
 
     <ImageButton
         android:id="@+id/imageButton8"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="52dp"
         android:contentDescription="@string/hobbies"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton1"
         app:srcCompat="@drawable/hobbies" />
 
     <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="90dp"
         android:layout_height="80dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="232dp"
         android:contentDescription="@string/top5"
         android:onClick="showQuestion"
         android:scaleType="centerInside"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/top5_icon" />
@@ -150,14 +142,15 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="87dp"
         android:layout_marginBottom="16dp"
         android:onClick="cancel"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
@@ -169,8 +162,9 @@
         android:fontFamily="monospace"
         android:text="Team Name"
         android:textAlignment="center"
-        android:textColor="#F8F4F4"
+        android:textColor="#FFC107"
         android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

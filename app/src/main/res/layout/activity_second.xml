@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#011250"
-    tools:context=".Second">
+    tools:context=".SecondActivity">
 
     <TextView
         android:id="@+id/textViewTeam1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="120dp"
         android:text="@string/teamm_1"
-        android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textColor="#FFC107"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,11 +41,12 @@
         android:id="@+id/textViewTeam2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="112dp"
         android:text="@string/teamm_2"
-        android:textColor="#FFFFFF"
-        android:textSize="50sp"
+        android:textColor="#FFC107"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextTeam1" />
 

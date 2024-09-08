@@ -14,6 +14,7 @@ public class RulesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules);
 
+        // Game rules description
         String rules = "Have you seen this episode on Friends, where the girls argue with the " +
                 "boys about who knows whom the best and then they end up making a quiz game to actually " +
                 "find out? Well, with this game it's your turn to find out how well you and your friends " +
@@ -30,6 +31,7 @@ public class RulesActivity extends AppCompatActivity {
                 "7. Ancient History: Questions that refer to past events.\n8. Hobbies: Hobbies and activities related questions.\n9. True Friends: " +
                 "Random questions.";
 
+        // Find the TextView by its ID and set the rules text
         TextView textRules = findViewById(R.id.textView2);
         if (textRules != null) {
             textRules.setText(rules);
@@ -38,6 +40,7 @@ public class RulesActivity extends AppCompatActivity {
         }
     }
 
+    // Method to handle the 'Go Back' button click event
     public void goBackToMain(View view) {
         Log.d("RulesActivity", "Navigating back to MainActivity");
         finish(); // Closes the current activity and returns to the previous one
